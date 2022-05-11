@@ -1,0 +1,49 @@
+<form [formGroup]="formdata" (submit)="submitdata(formdata.value)">
+  <h1 class="text-center">Login</h1>
+  <div class="container text-center mt-3" style="border: 2px solid ; height: 750px; width: 50%; background-color: rgb(224, 226, 205);">
+    <div>
+      <label for="" class="mt-5">City : </label><br>
+      <input type="text" name="city" id="" formControlName="city"  [(ngModel)]="city">
+    </div>
+    <br><br>
+    <div>
+      <label for="">panNumber :</label><br>
+      <input type="text" name="panNumber" formControlName="panNumber"  [(ngModel)]="panNumber">
+    </div>
+    <br><br>
+    <div>
+      <label for="">fullname :</label><br>
+      <input type="text" name="fullname" id="" formControlName="fullname" [(ngModel)]="fullname">
+    </div>
+    <br><br>
+    <div>
+      <label for="">Email :</label><br>
+      <input type="email" name="email" formControlName="email" [(ngModel)]="email">
+    <!-- <span *ngIf="data.controls.email.invalid && data.controls.email.touched">Please enter valid email</span> -->
+
+    </div>
+    <br><br>
+    <div>
+      <label for="">MobileNo :</label><br>
+      <input type="text" name="mobile" formControlName="mobile" (input)="otpmobile($event)" [(ngModel)]="mobile">
+    </div>
+    <br><br>
+    <div>
+      <label for="">OTP :</label><br>
+      <input type="text"  name="otp" formControlName="otp">
+    </div>
+    <br><br>
+    <div>
+      <button class="btn btn-primary" type="submit" [disabled]="!formdata.valid"> Submit</button>
+
+    <button class="btn btn-primary" type="button" (click)="resendotp()" [disabled]="isresend == false"  >Resend OTP</button>
+    <p *ngIf="isresend == true">
+      <countdown [config]="{leftTime:10}"></countdown>
+    </p>
+    </div>
+
+  </div>
+
+</form>
+
+
